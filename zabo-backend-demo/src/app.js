@@ -1,5 +1,5 @@
 const express = require("express");
-const router = require("./controllers/transactions");
+const router = require("./controllers/balances");
 const { zabo } = require("./modules/zabo");
 const cors = require("cors");
 require("dotenv").config();

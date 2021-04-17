@@ -8,9 +8,9 @@ router.get("/balances/:address", async (res, resp) => {
 
   _zabo.blockchains
     .getBalances("ethereum", address)
-    .then((transactions) => {
+    .then((balances) => {
       resp.send({
-        balances: transactions.data,
+        balances: balances.data,
         error: "",
       });
     })
