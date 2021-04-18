@@ -2,7 +2,7 @@
 A simple demo to read the balance from a connected wallet or a specified Ethereum address.
 
 ## Preview
-![GIF](https://i.imgur.com/ZHSVdSE.gif)
+![GIF](https://i.imgur.com/e3Zlec0.gif)
 
 ## Run Demo
 1. `cd` into `zabo-backend-demo`

@@ -65,7 +65,7 @@ const displayInfo = (tx) => {
       target="_blank"
     >
       <img
-        style={{ marginLeft: 8 }}
+        style={{ marginRight: 8 }}
         width={15}
         height={15}
         src={worldImg}
@@ -77,16 +77,18 @@ const displayInfo = (tx) => {
   if (tx.parts.length === 1) {
     return (
       <>
+        {etherscanLink}
         {capitalizeFirstLetter(tx.parts[0].direction)} (
-        {moment(tx.initiated_at).format('l').toString()}){etherscanLink}
+        {moment(tx.initiated_at).format('l').toString()})
       </>
     );
   }
 
   return (
     <>
+      {etherscanLink}
       {capitalizeFirstLetter(tx.transaction_type)} (
-      {moment(tx.initiated_at).format('l').toString()}){etherscanLink}
+      {moment(tx.initiated_at).format('l').toString()})
     </>
   );
 };
