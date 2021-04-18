@@ -3,7 +3,7 @@ import { Button, Window, WindowContent, WindowHeader } from 'react95';
 import { ZaboContext } from './ZaboProvider';
 import Draggable from 'react-draggable';
 
-const ConnectWallet = ({ setBalances }) => {
+const ConnectWallet = ({ setBalances, setConnected, connected }) => {
   return (
     <ZaboContext.Consumer>
       {({ result: zabo }) => {
@@ -15,9 +15,16 @@ const ConnectWallet = ({ setBalances }) => {
                 <Button
                   onClick={() => {
                     zabo.connect().onConnection(() => {
-                      zabo.accounts.getBalances().then((balances) => {
-                        setBalances(balances.data);
-                      });
+                      setConnected(connected + 1);
+
+                      zabo.accounts
+                        .getBalances()
+                        .then((balances) => {
+                          setBalances(balances.data);
+                        })
+                        .catch((err) => {
+                          console.error(err);
+                        });
                     });
                   }}
                 >

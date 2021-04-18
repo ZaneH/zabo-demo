@@ -2,7 +2,6 @@ import React from 'react';
 import { useAsync } from 'react-async-hook';
 const Zabo = require('zabo-sdk-js');
 
-// initialize Zabo async
 const zabo = async () =>
   await Zabo.init({
     clientId: process.env.REACT_APP_ZABO_CLIENT_ID,

@@ -10,6 +10,7 @@ import ConnectWallet from './components/ConnectWallet';
 import Taskbar from './components/Taskbar';
 import { useState } from 'react';
 import Info from './components/Info';
+import TransactionList from './components/TransactionList';
 
 const GlobalStyles = createGlobalStyle`
   @font-face {
@@ -31,15 +32,21 @@ const GlobalStyles = createGlobalStyle`
 
 function App() {
   const [balances, setBalances] = useState([]);
+  const [connected, setConnected] = useState(0);
 
   return (
     <div className="App">
       <GlobalStyles />
       <ThemeProvider theme={original}>
         <ZaboLoader>
-          <ConnectWallet setBalances={setBalances} />
+          <ConnectWallet
+            setConnected={setConnected}
+            setBalances={setBalances}
+            connected={connected}
+          />
           <Info />
           <BalanceList setBalances={setBalances} balances={balances} />
+          <TransactionList connected={connected} />
         </ZaboLoader>
         <Taskbar />
       </ThemeProvider>
