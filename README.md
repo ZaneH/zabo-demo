@@ -2,7 +2,7 @@
 A simple portfolio demo using the Zabo SDK. View the balance of any wallet and the balance/transactions of connected wallets.
 
 ## Preview
-![GIF](https://i.imgur.com/e3Zlec0.gif)
+![GIF](https://i.imgur.com/mIPf5OR.gif)
 
 ## Run Demo
 1. `cd` into `zabo-backend-demo`

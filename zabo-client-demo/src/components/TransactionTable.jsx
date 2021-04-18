@@ -133,6 +133,7 @@ const TransactionTable = ({ connected }) => {
   return (
     <>
       <div style={{ textAlign: 'right', marginBottom: 6 }}>
+        <span style={{ paddingRight: 12 }}>Page {page + 1}</span>
         <Button
           variant="sm"
           disabled={page === 0}
