@@ -1,5 +1,5 @@
 # Zabo Demo
-A simple demo to read the balance from a connected wallet or a specified Ethereum address.
+A simple portfolio demo using the Zabo SDK. View the balance of any wallet and the balance/transactions of connected wallets.
 
 ## Preview
 ![GIF](https://i.imgur.com/e3Zlec0.gif)

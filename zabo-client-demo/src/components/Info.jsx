@@ -5,7 +5,7 @@ import zaboImg from '../img/zabo.png';
 
 const Info = () => {
   return (
-    <Draggable handle=".handle" defaultPosition={{ x: -160, y: -100 }}>
+    <Draggable handle=".handle" defaultPosition={{ x: -160, y: -80 }}>
       <Window style={{ width: '300px' }}>
         <WindowHeader className="handle">Info.exe</WindowHeader>
         <WindowContent>
@@ -14,8 +14,8 @@ const Info = () => {
             <h4>Zabo Demo</h4>
           </div>
           <p>
-            Using the Zabo API to display your wallet balances or the balances
-            of other addresses.
+            A simple portfolio demo using the Zabo SDK. View the balance of any
+            wallet and the balance/transactions of connected wallets.
             <br />
             <br />
             <Anchor href="https://github.com/zaneh/zabo-demo" target="_blank">
