@@ -147,7 +147,6 @@ const TransactionTable = ({ connected }) => {
           disabled={page === maxPages}
           onClick={() => {
             if (page !== maxPages) {
-              console.log(page, maxPages);
               setPage(page + 1);
             }
           }}
