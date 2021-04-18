@@ -1,6 +1,7 @@
 import moment from 'moment';
 import React, { useContext, useEffect, useState } from 'react';
 import {
+  Anchor,
   Button,
   Table,
   TableBody,
@@ -11,6 +12,8 @@ import {
 } from 'react95';
 import checkImg from '../img/check.png';
 import errorImg from '../img/error.png';
+import worldImg from '../img/world.png';
+import clockImg from '../img/clock.png';
 import { capitalizeFirstLetter } from '../utils/capitalize';
 import { formatTicker } from '../utils/ticker';
 import { ZaboContext } from './ZaboProvider';
@@ -55,11 +58,27 @@ const displayParts = (parts) => {
 };
 
 const displayInfo = (tx) => {
+  const etherscanLink = (
+    <Anchor
+      style={{ verticalAlign: 'middle' }}
+      href={`https://etherscan.io/tx/${tx.id}`}
+      target="_blank"
+    >
+      <img
+        style={{ marginLeft: 8 }}
+        width={15}
+        height={15}
+        src={worldImg}
+        alt="Etherscan"
+      />
+    </Anchor>
+  );
+
   if (tx.parts.length === 1) {
     return (
       <>
         {capitalizeFirstLetter(tx.parts[0].direction)} (
-        {moment(tx.initiated_at).format('l').toString()})
+        {moment(tx.initiated_at).format('l').toString()}){etherscanLink}
       </>
     );
   }
@@ -67,7 +86,7 @@ const displayInfo = (tx) => {
   return (
     <>
       {capitalizeFirstLetter(tx.transaction_type)} (
-      {moment(tx.initiated_at).format('l').toString()})
+      {moment(tx.initiated_at).format('l').toString()}){etherscanLink}
     </>
   );
 };
@@ -113,6 +132,8 @@ const TransactionTable = ({ connected }) => {
     <>
       <div style={{ textAlign: 'right', marginBottom: 6 }}>
         <Button
+          variant="sm"
+          disabled={page === 0}
           onClick={() => {
             if (page !== 0) {
               setPage(page - 1);
@@ -122,6 +143,8 @@ const TransactionTable = ({ connected }) => {
           ◄
         </Button>
         <Button
+          variant="sm"
+          disabled={page === maxPages}
           onClick={() => {
             if (page !== maxPages) {
               console.log(page, maxPages);
@@ -156,9 +179,21 @@ const TransactionTable = ({ connected }) => {
                     }}
                   >
                     {tx.status === 'completed' ? (
-                      <img width={22} height={22} src={checkImg} alt="Check" />
+                      <img
+                        width={22}
+                        height={22}
+                        src={checkImg}
+                        alt="Completed"
+                      />
                     ) : tx.status === 'failed' ? (
-                      <img width={22} height={22} src={errorImg} alt="Error" />
+                      <img width={22} height={22} src={errorImg} alt="Failed" />
+                    ) : tx.status === 'pending' ? (
+                      <img
+                        width={22}
+                        height={22}
+                        src={clockImg}
+                        alt="Pending"
+                      />
                     ) : null}
                   </div>
                 </TableDataCell>
