@@ -91,13 +91,13 @@ const BalanceList = ({ balances, setBalances }) => {
                           $
                           {formatTicker(balance.ticker ?? balance.token.ticker)}
                         </TableDataCell>
-                        <TableDataCell>
+                        <TableDataCell style={{ textAlign: 'right' }}>
                           {Number(
                             balance.amount ??
                               web3.utils.fromWei(balance.balance, 'ether')
                           ).toFixed(6)}
                         </TableDataCell>
-                        <TableDataCell>
+                        <TableDataCell style={{ textAlign: 'right' }}>
                           {balance.fiat_value ?? 'N/A'}
                         </TableDataCell>
                       </TableRow>

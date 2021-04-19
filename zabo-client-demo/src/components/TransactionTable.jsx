@@ -48,7 +48,7 @@ const displayParts = (parts) => {
 
     return (
       <>
-        {Number(sentPart.amount).toFixed(2)} ${formatTicker(sentPart.ticker)}{' '}
+        {Number(sentPart.amount).toFixed(2)} ${formatTicker(sentPart.ticker)}
         {' → '}
         {Number(receivedPart.amount).toFixed(2)} $
         {formatTicker(receivedPart.ticker)}
