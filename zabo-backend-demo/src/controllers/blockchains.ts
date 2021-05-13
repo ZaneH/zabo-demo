@@ -6,9 +6,9 @@ router.get('/blockchains/getBlock', async (req, res) => {
   const _zabo = await zabo();
   const block = req.query['block'] ? Number(req.query['block']) : undefined
 
-  _zabo.blockchains.getBlock('bitcoin', block ?? 0).then((block) => {
+  _zabo.blockchains.getBlock('ethereum', block ?? 200).then((resp) => {
     res.json({
-      resp: block,
+      resp,
       error: ''
     })
   }).catch((err) => {
@@ -61,7 +61,7 @@ router.get('/blockchains/getContract', async (req, res) => {
 
 router.get('/blockchains/getTokens', async (req, res) => {
   const _zabo = await zabo()
-  
+
   _zabo.blockchains
     .getTokens('ethereum', 'UNI')
     .then((resp) => {
@@ -80,7 +80,7 @@ router.get('/blockchains/getTokens', async (req, res) => {
 
 router.get('/blockchains/getTransactions', async (req, res) => {
   const _zabo = await zabo()
-  
+
   _zabo.blockchains
     .getTransactions('ethereum', '0xcf741a54fcf72607d8185ee15914430e420bd41c')
     .then((resp) => {

@@ -10,7 +10,6 @@
     "baseUrl": "./",
     "typeRoots": [
       "./node_modules/@types",
-      "./node_modules/zabo-sdk-js/@types"
     ],
     "esModuleInterop": true,
     "skipLibCheck": true

@@ -47,9 +47,9 @@ router.get('/blockchains/getBlock', function (req, res) { return __awaiter(void 
             case 1:
                 _zabo = _a.sent();
                 block = req.query['block'] ? Number(req.query['block']) : undefined;
-                _zabo.blockchains.getBlock('bitcoin', block !== null && block !== void 0 ? block : 0).then(function (block) {
+                _zabo.blockchains.getBlock('ethereum', block !== null && block !== void 0 ? block : 200).then(function (resp) {
                     res.json({
-                        resp: block,
+                        resp: resp,
                         error: ''
                     });
                 }).catch(function (err) {

@@ -49,18 +49,22 @@ router.get('/trading/getSymbols', function (req, res) { return __awaiter(void 0,
             case 0: return [4 /*yield*/, zabo_1.zabo()];
             case 1:
                 _zabo = _a.sent();
-                console.log(_zabo);
-                _zabo.trading.getSymbols().then(function (resp) {
-                    res.json({
-                        resp: resp,
-                        error: ''
+                try {
+                    _zabo.trading.getSymbols().then(function (resp) {
+                        res.json({
+                            resp: resp,
+                            error: ''
+                        });
+                    }).catch(function (err) {
+                        res.json({
+                            resp: {},
+                            error: ''
+                        });
                     });
-                }).catch(function (err) {
-                    res.json({
-                        resp: {},
-                        error: ''
-                    });
-                });
+                }
+                catch (e) {
+                    console.error("Trading API isn't available. (Client-side only)");
+                }
                 return [2 /*return*/];
         }
     });

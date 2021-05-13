@@ -9,18 +9,21 @@ const router = Router()
 router.get('/trading/getSymbols', async (req, res) => {
   const _zabo = await zabo()
 
-  console.log(_zabo)
-  _zabo.trading.getSymbols().then((resp) => {
-    res.json({
-      resp,
-      error: ''
+  try {
+    _zabo.trading.getSymbols().then((resp) => {
+      res.json({
+        resp,
+        error: ''
+      })
+    }).catch((err) => {
+      res.json({
+        resp: {},
+        error: ''
+      })
     })
-  }).catch((err) => {
-    res.json({
-      resp: {},
-      error: ''
-    })
-  })
+  } catch (e) {
+    console.error("Trading API isn't available. (Client-side only)")
+  }
 })
 
 export default router
